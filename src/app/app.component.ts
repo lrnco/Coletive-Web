@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'cc-root',
   template: `
-    <cc-toolbar></cc-toolbar>
+    <cc-icon-set></cc-icon-set>
     <router-outlet></router-outlet>
   `
 })

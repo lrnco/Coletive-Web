@@ -1,0 +1,15 @@
+body .mat-toolbar {
+    background: $color__lighengray;
+
+    &.main-toolbar .mat-toolbar-row {
+        justify-content: space-between;
+    }
+
+    &:not(.main-toolbar) {
+        border-bottom: solid 1px $color__gray;
+
+        md-icon[svgicon="coletive"] {
+            width: calc(100% - 48px);
+        }
+    }
+}

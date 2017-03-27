@@ -1,0 +1,14 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+body {
+  color: $color__darkgray;
+  transition: background-color .5s;
+  $color__primary: mat-palette($mat-teal);
+  $color__accent:  mat-palette($mat-cyan, 300, 500, 600);
+  $color__warn:    mat-palette($mat-red);
+
+  $color-app-theme: mat-light-theme($color__primary, $color__accent, $color__warn);
+
+  @include angular-material-theme($color-app-theme);
+}

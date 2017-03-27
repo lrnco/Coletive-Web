@@ -1,0 +1,15 @@
+$font__main: 'Open Sans', sans-serif;
+
+h1, h2, h3, h4, h5, h6, div{
+  font-family: $font__main;
+}
+
+p, span, em {
+  font-family: $font__main;
+  letter-spacing: .04em;
+}
+
+small {
+  font-family: $font__main;
+  letter-spacing: .02em;
+}

@@ -1,0 +1,53 @@
+@import "../../../scss/variables/colors";
+
+#login-trello, #register-trello {
+    text-align: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 36px 0;
+    margin: 0 16px;
+
+    button {
+        width: 240px;
+        height: 72px;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 16px;
+
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            span {
+                text-align: left;
+                white-space: normal;
+                line-height: normal;
+            }
+        }
+    }
+}
+
+#login-trello {
+    border-bottom: solid 1px  $color__gray;
+
+    button {
+        background-color: $color__main;
+    }
+
+    small {
+        width: 280px;
+    }
+}
+
+#register-trello {
+    button {
+        background-color: $color__trello;
+    }
+    small {
+        width: 320px;
+    }
+}
