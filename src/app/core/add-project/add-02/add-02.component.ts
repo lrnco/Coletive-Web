@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class Add02Component implements OnInit {
 
-  lists = [ 'Backlog', 'TODO', 'Doing', 'Done', 'Publicado', 'Stories' ];
+  @Input() lists;
   select:number;
   @Output() selected = new EventEmitter();
   currentList:number = 0;

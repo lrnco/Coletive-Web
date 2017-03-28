@@ -16,6 +16,14 @@ export class AddProjectComponent implements OnInit {
   loading:boolean = false;
   helpOpened:boolean = false;
 
+  projects = [
+     {title: 'Nome do projeto nome do projeto 1 ...', team: 'Nome to Time Incrível...'},
+     {title: 'Nome do projeto nome do projeto 2 ...', team: 'Nome to Time Incrível...'},
+     {title: 'Nome do projeto nome do projeto 3 ...', team: 'Nome to Time Incrível...'},
+     {title: 'Nome do projeto nome do projeto 4 ...', team: 'Nome to Time Incrível...'}
+  ];
+  lists = [ 'Backlog', 'TODO', 'Doing', 'Done', 'Publicado', 'Stories' ];
+
   constructor() { }
 
   ngOnInit() {

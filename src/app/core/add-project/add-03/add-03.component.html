@@ -1,6 +1,6 @@
 <form name="form" id="description" (ngSubmit)="f.form.valid && emitInfo(f)" #f="ngForm">
   <h4>Descrição do projeto *</h4>
-  <textarea name="description" rows="10" cols="40" [(ngModel)]="description" (keyup)="emitDescription()" placeholder="Coloque uma descrição do seu projeto. Conta um pouco a respeito dele, para que as pessoas entendam melhor." required></textarea>
+  <textarea name="description" rows="7" cols="40" [(ngModel)]="description" (keyup)="emitDescription()" placeholder="Coloque uma descrição do seu projeto. Conta um pouco a respeito dele, para que as pessoas entendam melhor." required></textarea>
   <h4>Informações complementares</h4>
-  <textarea name="description" rows="6" cols="40" [(ngModel)]="aditionalInfo" (keyup)="emitInfo()" placeholder="Util para colocar detalhes importantes, como links ou locais onde os códigos estão salvos e etc..."></textarea>
+  <textarea name="description" rows="5" cols="40" [(ngModel)]="aditionalInfo" (keyup)="emitInfo()" placeholder="Util para colocar detalhes importantes, como links ou locais onde os códigos estão salvos e etc..."></textarea>
 </form>
