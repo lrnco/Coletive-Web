@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
+//Main Toolbar
 @Component({
   selector: 'cc-toolbar',
   template: `
@@ -16,16 +17,22 @@ export class ToolbarComponent {
 
 }
 
+//Toolbar Dialog
 @Component({
   selector: 'cc-toolbar-dialog',
   template: `
     <md-toolbar>
-      <md-icon (click)="returnNav()" color="accent">clear</md-icon>
-      <md-icon svgIcon="coletive"></md-icon>
+      <md-icon (click)="returnNav()" [color]="color">{{ icon }}</md-icon>
+      <md-icon *ngIf="!title" svgIcon="coletive"></md-icon>
+      <div *ngIf="title">{{ title }}</div>
     </md-toolbar>
 `
 })
 export class ToolbarDialogComponent {
+
+  @Input() icon:string = 'arrow_back';
+  @Input() color:string = 'accent';
+  @Input() title:string;
 
   constructor(private router: Router) { }
 

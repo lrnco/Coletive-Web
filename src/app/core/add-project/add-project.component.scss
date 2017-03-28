@@ -1,0 +1,122 @@
+@import "../../../scss/variables/colors";
+
+#add-project-tabs {
+  .mat-tab-label {
+      border-bottom: solid 2px $color__lightgray;
+      font-size: 22px;
+      opacity: 1;
+      color: #fff;
+
+      &, div.label {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+      }
+
+      div.label {
+          background-color: $color__lightgray;
+          border-radius: 16px;
+          width: 32px;
+          height: 32px;
+      }
+  }
+  .mat-ink-bar {
+      background-color: $color__tabs;
+  }
+  .mat-tab-label-active {
+      background-color: rgba($color__tabs, 0.1);
+
+      div.label {
+          background-color: $color__tabs;
+      }
+  }
+
+
+
+  .mat-list-item {
+
+      .mat-list-item-content {
+          height: 72px;
+      }
+      md-icon {
+          color: $color__lightgray;
+          .check {
+              fill: none;
+          }
+      }
+
+      .border-bottom {
+          position: absolute;
+          bottom: 0;
+          height: 1px;
+          background-color: $color__lightgray;
+          width: calc(100% - 32px);
+      }
+
+
+      &.selected {
+          background-color: $color__selected;
+          color: #fff;
+
+          md-icon {
+              color: #fff;
+              .check {
+                  fill: #fff;
+              }
+          }
+      }
+
+  }
+
+  #no-project {
+      text-align: center;
+      margin: 80px 0;
+
+      h3 {
+          color: $color__main;
+      }
+
+      button.mat-button {
+          text-transform: uppercase;
+          font-weight: 600;
+          color: #fff;
+          background: #00b7a4;
+          width: 260px;
+          height: 50px;
+          margin: 16px 0;
+
+          span {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+          }
+      }
+
+
+  }
+
+}
+
+button#next-tab {
+    background-color: $color__selected;
+    color: #fff;
+    width: calc(100% - 32px);
+    height: 48px;
+    margin: 16px;
+    font-size: 16px;
+    position: fixed;
+    bottom: 0;
+
+    .mat-icon {
+        position: absolute;
+        right: 16px;
+        margin: 2px 0;
+        font-size: 32px;
+        height: 32px;
+        width: 32px;
+    }
+
+    &:disabled {
+        background-color: $color__lightgray;
+    }
+}

@@ -1,0 +1,10 @@
+<cc-toolbar-dialog title="Escolher o projeto"></cc-toolbar-dialog>
+<md-tab-group id="add-project-tabs" md-stretch-tabs [(selectedIndex)]="activeTab">
+  <md-tab><ng-template md-tab-label><div class="label">1</div></ng-template><cc-add-01 (selected)="selectedProject($event)"></cc-add-01></md-tab>
+  <md-tab><ng-template md-tab-label><div class="label">2</div></ng-template><cc-add-02></cc-add-02></md-tab>
+  <md-tab><ng-template md-tab-label><div class="label">3</div></ng-template><cc-add-03></cc-add-03></md-tab>
+</md-tab-group>
+<button id="next-tab" md-button *ngIf="activeTab <= 1" (click)="activeTab = activeTab + 1"
+  [disabled]="(activeTab == 0 && model.project == null)">
+  Avançar<md-icon>keyboard_arrow_right</md-icon>
+</button>

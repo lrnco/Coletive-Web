@@ -1,5 +1,5 @@
 body .mat-toolbar {
-    background: $color__lighengray;
+    background: $color__lightengray;
 
     &.main-toolbar .mat-toolbar-row {
         justify-content: space-between;
@@ -8,8 +8,15 @@ body .mat-toolbar {
     &:not(.main-toolbar) {
         border-bottom: solid 1px $color__gray;
 
-        md-icon[svgicon="coletive"] {
-            width: calc(100% - 48px);
+        md-icon[svgicon="coletive"], div {
+            width: calc(100% - 24px);
         }
     }
+    div {
+      text-transform: uppercase;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+    }
+
 }

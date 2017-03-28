@@ -14,6 +14,7 @@ export class IconSetComponent {
         .addSvgIcon('coletive', sanitizer.bypassSecurityTrustResourceUrl('../../assets/icons/coletive.svg'))
         .addSvgIcon('coletive_icon', sanitizer.bypassSecurityTrustResourceUrl('../../assets/icons/coletive_icon.svg'))
         .addSvgIcon('trello', sanitizer.bypassSecurityTrustResourceUrl('../../assets/icons/trello.svg'))
+        .addSvgIcon('select-project', sanitizer.bypassSecurityTrustResourceUrl('../../assets/icons/select-project.svg'))
   }
 
 }
