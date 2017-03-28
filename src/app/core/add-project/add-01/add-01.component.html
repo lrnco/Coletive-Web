@@ -1,7 +1,6 @@
-<!-- {{ select | json }} -->
 <md-nav-list *ngIf="projects; else noProject">
   <md-list-item *ngFor="let p of projects" (click)="sendSelected(p)" [ngClass]="{'selected': select == p}">
-    <md-icon md-list-avatar svgIcon="select-project"></md-icon>
+    <md-icon md-list-avatar svgIcon="select"></md-icon>
     <h4 md-line>{{ p.title }}</h4>
     <p md-line>{{ p.team }}</p>
     <div class="border-bottom"></div>
@@ -9,7 +8,7 @@
 </md-nav-list>
 
 <ng-template #noProject>
-  <div id="no-project">
+  <div id="no-content">
       <img src="assets/images/project-folder.png" alt="">
       <h3>Você não tem nenhum<br>projeto cadastrado.</h3>
       <p>Clique no botão abaixo para acessar a <br>sua conta de Trello e criar um projeto.</p>

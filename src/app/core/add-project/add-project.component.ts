@@ -9,7 +9,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 export class AddProjectComponent implements OnInit {
 
   model:any = {};
-  activeTab = 0;
+  activeTab = 1;
 
   constructor() { }
 
@@ -18,6 +18,11 @@ export class AddProjectComponent implements OnInit {
 
   selectedProject(e) {
     this.model.project = e;
+    console.log(this.model);
+  }
+
+  selectedList(e) {
+    this.model.list = e;
     console.log(this.model);
   }
 

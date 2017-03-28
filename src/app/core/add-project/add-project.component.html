@@ -1,10 +1,40 @@
 <cc-toolbar-dialog title="Escolher o projeto"></cc-toolbar-dialog>
 <md-tab-group id="add-project-tabs" md-stretch-tabs [(selectedIndex)]="activeTab">
-  <md-tab><ng-template md-tab-label><div class="label">1</div></ng-template><cc-add-01 (selected)="selectedProject($event)"></cc-add-01></md-tab>
-  <md-tab><ng-template md-tab-label><div class="label">2</div></ng-template><cc-add-02></cc-add-02></md-tab>
-  <md-tab><ng-template md-tab-label><div class="label">3</div></ng-template><cc-add-03></cc-add-03></md-tab>
+  <md-tab>
+    <ng-template md-tab-label>
+      <div class="tab-label" [ngClass]="{'completed': activeTab > 0 && model.project != null}">
+        <div class="label">
+          <span *ngIf="activeTab == 0 || (activeTab > 0 && model.project == null)">1</span>
+          <md-icon *ngIf="activeTab > 0 && model.project != null">check</md-icon>
+        </div>
+      </div>
+    </ng-template>
+    <cc-add-01 (selected)="selectedProject($event)"></cc-add-01>
+  </md-tab>
+  <md-tab>
+    <ng-template md-tab-label>
+      <div class="tab-label" [ngClass]="{'completed': activeTab > 1 && model.project != null}">
+        <div class="label">
+          <span *ngIf="activeTab == 1 || (activeTab != 1 && model.list == null)">2</span>
+          <md-icon *ngIf="activeTab != 1 && model.list != null">check</md-icon>
+        </div>
+      </div>
+    </ng-template>
+    <cc-add-02 (selected)="selectedList($event)"></cc-add-02>
+  </md-tab>
+  <md-tab>
+    <ng-template md-tab-label>
+      <div class="tab-label" [ngClass]="{'completed': activeTab < 2 && model.details != null}">
+        <div class="label">
+          <span *ngIf="activeTab == 2 || (activeTab < 2 && model.details == null)">3</span>
+          <md-icon *ngIf="activeTab < 2 && model.details != null">check</md-icon>
+        </div>
+      </div>
+    </ng-template>
+    <cc-add-03></cc-add-03>
+  </md-tab>
 </md-tab-group>
 <button id="next-tab" md-button *ngIf="activeTab <= 1" (click)="activeTab = activeTab + 1"
-  [disabled]="(activeTab == 0 && model.project == null)">
+  [disabled]="(activeTab == 0 && model.project == null) || (activeTab == 1 && model.list == null)">
   Avançar<md-icon>keyboard_arrow_right</md-icon>
 </button>

@@ -1,3 +1,14 @@
-<p>
-  add-02 works!
-</p>
+<div id="lists">
+  <div id="list-slider" [ngStyle]="{'transform': listTranslation , 'width': (listWidth * lists.length) + 'px' }" (swipe)="swipeList($event)">
+    <div *ngFor="let list of lists; let i = index" id="list" (click)="sendSelected(i)" [ngClass]="{'selected': select == i, 'flex': '0 0 ' + listWidth + 'px' }">
+        <div>{{ list }} <md-icon svgIcon="chevron_down_outline"></md-icon></div>
+        <md-icon svgIcon="list_01"></md-icon>
+    </div>
+  </div>
+  <div id="list-slider-pagination">
+    <div *ngFor="let list of lists; let i = index">
+        <md-icon *ngIf="currentList != i" color="primary">panorama_fish_eye</md-icon>
+        <md-icon *ngIf="currentList == i" color="primary">lens</md-icon>
+    </div>
+  </div>
+</div>
