@@ -1,4 +1,4 @@
-<cc-toolbar-dialog title="Escolher o projeto"></cc-toolbar-dialog>
+<cc-toolbar-dialog [title]=title></cc-toolbar-dialog>
 <md-tab-group id="add-project-tabs" md-stretch-tabs [(selectedIndex)]="activeTab">
   <md-tab>
     <ng-template md-tab-label>
@@ -9,32 +9,38 @@
         </div>
       </div>
     </ng-template>
-    <cc-add-01 (selected)="selectedProject($event)"></cc-add-01>
+    <cc-add-01 (selected)="answer($event)"></cc-add-01>
   </md-tab>
   <md-tab>
     <ng-template md-tab-label>
-      <div class="tab-label" [ngClass]="{'completed': activeTab > 1 && model.project != null}">
+      <div class="tab-label" [ngClass]="{'completed': activeTab > 1 && model.list != null}">
         <div class="label">
           <span *ngIf="activeTab == 1 || (activeTab != 1 && model.list == null)">2</span>
           <md-icon *ngIf="activeTab != 1 && model.list != null">check</md-icon>
         </div>
       </div>
     </ng-template>
-    <cc-add-02 (selected)="selectedList($event)"></cc-add-02>
+    <cc-add-02 (selected)="answer($event)"></cc-add-02>
   </md-tab>
   <md-tab>
     <ng-template md-tab-label>
-      <div class="tab-label" [ngClass]="{'completed': activeTab < 2 && model.details != null}">
+      <div class="tab-label" [ngClass]="{'completed': activeTab < 2 && model.description != null}">
         <div class="label">
-          <span *ngIf="activeTab == 2 || (activeTab < 2 && model.details == null)">3</span>
-          <md-icon *ngIf="activeTab < 2 && model.details != null">check</md-icon>
+          <span *ngIf="activeTab == 2 || (activeTab < 2 && model.description == null)">3</span>
+          <md-icon *ngIf="activeTab < 2 && model.description != null">check</md-icon>
         </div>
       </div>
     </ng-template>
-    <cc-add-03></cc-add-03>
+    <cc-add-03 (info)="answer($event)"></cc-add-03>
   </md-tab>
 </md-tab-group>
-<button id="next-tab" md-button *ngIf="activeTab <= 1" (click)="activeTab = activeTab + 1"
+
+<button id="next" md-button *ngIf="activeTab < 2" (click)="activeTab = activeTab + 1"
   [disabled]="(activeTab == 0 && model.project == null) || (activeTab == 1 && model.list == null)">
   Avançar<md-icon>keyboard_arrow_right</md-icon>
+</button>
+
+<button id="next" *ngIf="activeTab == 2" md-button (click)="submit()"
+  [disabled]="loading || model.project == null || model.list == null || model.description == null">
+  Finalizar Cadastro<md-icon>check</md-icon>
 </button>

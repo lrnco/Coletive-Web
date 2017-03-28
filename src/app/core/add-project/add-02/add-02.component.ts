@@ -1,11 +1,11 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'cc-add-02',
   templateUrl: './add-02.component.html'
 })
-export class Add02Component {
+export class Add02Component implements OnInit {
 
   lists = [ 'Backlog', 'TODO', 'Doing', 'Done', 'Publicado', 'Stories' ];
   select:number;
@@ -20,8 +20,11 @@ export class Add02Component {
      Observable.fromEvent(window, 'resize').subscribe((e:any) => this.slidesResize(e.currentTarget.innerWidth));
   }
 
+  ngOnInit() {
+    // this.lists = null; // <-- Para testar, caso não tenha listas cadastrados no Trello
+  }
+
   slidesResize(winWidth) {
-    console.log(winWidth);
     if (winWidth <= 340) {
       this.listWidth = winWidth * 0.55;
       this.listMargin = (winWidth * 0.45) / 2;
@@ -34,7 +37,7 @@ export class Add02Component {
 
   sendSelected(l) {
     this.select = l;
-    this.selected.emit(l);
+    this.selected.emit({list: l});
   }
 
   swipeList(e:any){

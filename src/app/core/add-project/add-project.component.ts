@@ -1,4 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import {Subject} from "rxjs/Subject";
+// import 'rxjs/add/operator/just';
 
 @Component({
   selector: 'cc-add-project',
@@ -8,22 +11,27 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class AddProjectComponent implements OnInit {
 
-  model:any = {};
-  activeTab = 1;
+  model:any = { project:null, list:null, description: null, aditionalInfo: null};
+  activeTab:number = 0;
+  title:string = 'Adicionar projeto';
+  color:string = '';
+  loading:boolean = false;
 
   constructor() { }
 
   ngOnInit() {
+    // if (this.activeTab == 1) this.title = 'Escolher a lista de tarefas';
   }
 
-  selectedProject(e) {
-    this.model.project = e;
-    console.log(this.model);
+  answer(e) {
+    var key = Object.keys(e);
+    this.model[key[0]] = e[key[0]];
   }
 
-  selectedList(e) {
-    this.model.list = e;
+  submit() {
+    this.loading = true;
     console.log(this.model);
+    alert('Enviado: ' + this.model.project.title);
   }
 
 }

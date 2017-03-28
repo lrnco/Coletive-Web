@@ -23,7 +23,7 @@ export class Add01Component implements OnInit {
 
   sendSelected(p) {
     this.select = p;
-    this.selected.emit(p);
+    this.selected.emit({project: p});
   }
 
   addTrello() {

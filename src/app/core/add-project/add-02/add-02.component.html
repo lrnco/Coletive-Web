@@ -1,4 +1,4 @@
-<div id="lists">
+<div id="lists" *ngIf="lists; else noLists">
   <div id="list-slider" [ngStyle]="{'transform': listTranslation , 'width': (listWidth * lists.length) + 'px' }" (swipe)="swipeList($event)">
     <div *ngFor="let list of lists; let i = index" id="list" (click)="sendSelected(i)" [ngClass]="{'selected': select == i, 'flex': '0 0 ' + listWidth + 'px' }">
         <div>{{ list }} <md-icon svgIcon="chevron_down_outline"></md-icon></div>
@@ -12,3 +12,12 @@
     </div>
   </div>
 </div>
+
+<ng-template #noLists>
+  <div id="no-content">
+      <img src="assets/images/project-folder.png" alt="">
+      <h3>Você não tem nenhuma<br>lista de tarefas criadas.</h3>
+      <p>Clique no botão abaixo para acessar a sua<br> conta de Trello e criar uma lista de tarefas.</p>
+      <button md-button (click)="addTrello()">Adicionar uma lista<md-icon>add_circle_outline</md-icon></button>
+  </div>
+</ng-template>

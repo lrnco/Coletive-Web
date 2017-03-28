@@ -169,15 +169,31 @@
               justify-content: space-between;
           }
       }
-
-
   }
 
+  // DESCRIPTION
+  form#description {
+    padding: 8px 16px;
+
+    h4 {
+      margin-bottom: 8px;
+    }
+  }
 
 
 }
 
-button#next-tab {
+@media (max-width: 340px) {
+  #add-project-tabs #no-content {
+      margin: 40px 0;
+  }
+}
+
+md-tab-body {
+    max-height: calc(100vh - 200px);
+}
+
+button#next {
     background-color: $color__selected;
     color: #fff;
     width: calc(100% - 32px);
@@ -186,6 +202,7 @@ button#next-tab {
     font-size: 16px;
     position: fixed;
     bottom: 0;
+    z-index: 100;
 
     .mat-icon {
         position: absolute;

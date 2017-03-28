@@ -4,3 +4,15 @@
 button {
   border-radius: 6px !important;
 }
+
+textarea {
+  border: solid 1px #dcdcdc;
+  border-radius: 4px;
+  max-width: calc(100% - 16px);
+  padding: 8px;
+}
+
+::-webkit-input-placeholder {
+  font-size: 13px;
+  line-height: 15px;
+}
