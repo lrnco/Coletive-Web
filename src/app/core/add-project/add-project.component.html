@@ -1,4 +1,14 @@
-<cc-toolbar-dialog [title]=title></cc-toolbar-dialog>
+<div id="help" [ngClass]="{'active': helpOpened}">
+  <md-icon *ngIf="!helpOpened" id="help_icon" (click)="sidenav.open()">help_outline</md-icon>
+  <md-icon *ngIf="helpOpened" id="help_icon" (click)="sidenav.close()">close</md-icon>
+  <md-icon id="tab" svgIcon="help_tab"></md-icon>
+</div>
+<md-sidenav-container>
+
+<cc-toolbar-dialog *ngIf="activeTab == 0" title='Escolher o Projeto'></cc-toolbar-dialog>
+<cc-toolbar-dialog *ngIf="activeTab == 1" title='Escolher a lista de tarefas' color='primary'></cc-toolbar-dialog>
+<cc-toolbar-dialog *ngIf="activeTab == 2" title='Descrições e informações' color='primary'></cc-toolbar-dialog>
+
 <md-tab-group id="add-project-tabs" md-stretch-tabs [(selectedIndex)]="activeTab">
   <md-tab>
     <ng-template md-tab-label>
@@ -44,3 +54,27 @@
   [disabled]="loading || model.project == null || model.list == null || model.description == null">
   Finalizar Cadastro<md-icon>check</md-icon>
 </button>
+
+
+
+<md-sidenav #sidenav align="end" (open-start)="helpOpened=true" (close-start)="helpOpened=false">
+  <div class="help-header"><md-icon>help_outline</md-icon>Ajuda</div>
+  <div class="help-body" *ngIf="activeTab == 0">
+    <p>Escolha o projeto que deseja adicionar.</p>
+    <p>Você só pode adicionar um projeto por vez.</p>
+    <p>Os projetos são adicionados diretamente pelo Trello. Uma vez o projeto adicionado no Trello ele aparecerá nessa etapa.</p>
+    <p>Mais texto de ajuda (se necessario).</p>
+  </div>
+  <div class="help-body" *ngIf="activeTab == 1">
+    <p>Escolha uma única lista, com as tarefas que necessita de ajuda.</p>
+    <p>Você uma única lista de tarefas por projeto. Então concentra todas as tuas tarefas numa única lista. Nossa sugestão seria ter uma lista chamada “To do” ou “Tarefas”.</p>
+    <p>As tarefas são adicionadas diretamente pelo Trello. Uma vez a tarefas adicionada no Trello, ela aparecerá nessa etapa.</p>
+    <p>Mais texto de ajuda (se necessario).</p>
+  </div>
+  <div class="help-body" *ngIf="activeTab == 2">
+    <p><strong>Descrição do Projeto</strong><br>Coloque uma descrição do seu projeto. Conta um pouco a respeito dele, para que as pessoas entendam melhor.</p>
+    <p><strong>Informações complementares</strong><br>Util para colocar detalhes importantes, como links ou locais onde os códigos estão salvos e etc...</p>
+  </div>
+</md-sidenav>
+
+</md-sidenav-container>

@@ -1,5 +1,58 @@
 @import "../../../scss/variables/colors";
 
+md-sidenav-container {
+    height: 100vh;
+    background-color: #fff !important;
+}
+
+md-sidenav {
+    width: 48vh;
+    color: #fff !important;
+    background: $color__sec !important;
+
+    .help-header {
+        width: 100%;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        padding: 0 24px;
+        background-color: $color__sec_darken;
+        font-size: 18px;
+        text-transform: uppercase;
+        md-icon {
+          padding-right: 16px;
+        }
+    }
+    .help-body {
+        padding: 24px;
+    }
+}
+
+#help {
+    position: absolute;
+    top: 35vh;
+    right: 85vw;
+    z-index: 200;
+    width: 40px;
+    color: #fff;
+    transform: translateX(48vh);
+    transition: transform .4s cubic-bezier(.25,.8,.25,1);
+    #help_icon {
+        position: absolute;
+        right: -4px;
+        top: 7px;
+        padding: 30px 10px;
+    }
+    #tab {
+        height: 100px;
+        width: 38.75px;
+    }
+
+    &.active {
+        transform: translateX(0);
+    }
+}
+
 #add-project-tabs {
 
   //PROJETO

@@ -22,16 +22,17 @@ export class ToolbarComponent {
   selector: 'cc-toolbar-dialog',
   template: `
     <md-toolbar>
-      <md-icon (click)="returnNav()" [color]="color">{{ icon }}</md-icon>
+      <md-icon (click)="returnNav()" [color]="iconColor">{{ icon }}</md-icon>
       <md-icon *ngIf="!title" svgIcon="coletive"></md-icon>
-      <div *ngIf="title">{{ title }}</div>
+      <div *ngIf="title" [ngClass]="{'primary': color == 'primary'}">{{ title }}</div>
     </md-toolbar>
 `
 })
 export class ToolbarDialogComponent {
 
   @Input() icon:string = 'arrow_back';
-  @Input() color:string = 'accent';
+  @Input() iconColor:string = 'accent';
+  @Input() color = '';
   @Input() title:string;
 
   constructor(private router: Router) { }

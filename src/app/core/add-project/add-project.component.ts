@@ -13,9 +13,8 @@ export class AddProjectComponent implements OnInit {
 
   model:any = { project:null, list:null, description: null, aditionalInfo: null};
   activeTab:number = 0;
-  title:string = 'Adicionar projeto';
-  color:string = '';
   loading:boolean = false;
+  helpOpened:boolean = false;
 
   constructor() { }
 

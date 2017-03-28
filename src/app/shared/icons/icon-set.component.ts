@@ -18,6 +18,7 @@ export class IconSetComponent {
         .addSvgIcon('list_01', sanitizer.bypassSecurityTrustResourceUrl('../../assets/icons/list_01.svg'))
         .addSvgIcon('list_02', sanitizer.bypassSecurityTrustResourceUrl('../../assets/icons/list_02.svg'))
         .addSvgIcon('chevron_down_outline', sanitizer.bypassSecurityTrustResourceUrl('../../assets/icons/chevron_down_outline.svg'))
+        .addSvgIcon('help_tab', sanitizer.bypassSecurityTrustResourceUrl('../../assets/icons/help_tab.svg'))
   }
 
 }
