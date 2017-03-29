@@ -45,17 +45,6 @@
   </md-tab>
 </md-tab-group>
 
-<button id="next" md-button *ngIf="activeTab < 2" (click)="activeTab = activeTab + 1"
-  [disabled]="(activeTab == 0 && model.project == null) || (activeTab == 1 && model.list == null)">
-  Avançar<md-icon>keyboard_arrow_right</md-icon>
-</button>
-
-<button id="next" *ngIf="activeTab == 2" md-button (click)="submit()"
-  [disabled]="loading || model.project == null || model.list == null || model.description == null">
-  Finalizar Cadastro<md-icon>check</md-icon>
-</button>
-
-
 
 <md-sidenav #sidenav align="end" (open-start)="helpOpened=true" (close-start)="helpOpened=false">
   <div class="help-header"><md-icon>help_outline</md-icon>Ajuda</div>
@@ -78,3 +67,13 @@
 </md-sidenav>
 
 </md-sidenav-container>
+
+<button id="next" md-button *ngIf="activeTab < 2" (click)="activeTab = activeTab + 1" [ngClass]="{'backdrop': helpOpened}"
+  [disabled]="(activeTab == 0 && model.project == null) || (activeTab == 1 && model.list == null)">
+  Avançar<md-icon>keyboard_arrow_right</md-icon>
+</button>
+
+<button id="next" *ngIf="activeTab == 2" md-button (click)="submit()" [ngClass]="{'backdrop': helpOpened}"
+  [disabled]="loading || model.project == null || model.list == null || model.description == null">
+  Finalizar Cadastro<md-icon>check</md-icon>
+</button>

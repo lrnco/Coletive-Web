@@ -25,13 +25,8 @@ export class Add02Component implements OnInit {
   }
 
   slidesResize(winWidth) {
-    if (winWidth <= 340) {
-      this.listWidth = winWidth * 0.55;
-      this.listMargin = (winWidth * 0.45) / 2;
-    } else {
-      this.listWidth = winWidth * 0.60;
-      this.listMargin = (winWidth * 0.40) / 2;
-    }
+    this.listWidth = winWidth * 0.55;
+    this.listMargin = (winWidth * 0.45) / 2;
     this.listTranslation = 'translateX(' + this.listMargin + 'px)';
   }
 
@@ -47,7 +42,7 @@ export class Add02Component implements OnInit {
   }
 
   translation() {
-    if (this.currentList > (this.lists.length - 1) ) this.currentList = 0;
+    if (this.currentList > (this.lists.length - 1) || this.currentList < 0 ) this.currentList = 0;
     this.listTranslation = 'translateX(' + (this.currentList * -this.listWidth + 12 + this.listMargin) + 'px)';
   }
 
