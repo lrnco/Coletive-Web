@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { Angular2TokenService } from 'angular2-token';
 
 // Main Components
 import { AppComponent } from './app.component';
@@ -13,8 +14,10 @@ import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconSetComponent } from './shared/icons/icon-set.component';
 
-//Gobal
+//Global
 import { SplitNumberPipe } from './global/pipes/pipes';
+import { HttpClient } from './global/http.client';
+import { AuthService } from './global/auth/auth.service';
 
 //Shared
 import { ToolbarComponent, ToolbarDialogComponent } from './shared/toolbar/toolbar.component';
@@ -46,7 +49,11 @@ import { AddProjectComponent, Add01Component, Add02Component, Add03Component } f
     MaterialModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    Angular2TokenService,
+    HttpClient,
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
