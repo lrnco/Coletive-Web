@@ -1,0 +1,24 @@
+<cc-toolbar-dialog icon="close"></cc-toolbar-dialog>
+<div id="add-sucesso" class="container">
+  <img src="assets/images/add-sucesso.jpg" alt="">
+  <h1>PROJETO E TAREFA CADASTRADO COM SUCESSO!</h1>
+  <p class="lead">Você agora pode compartilhar as suas tarefas e encontrar colaboradores.</p>
+  <div class="share">
+    <div class="buttons">
+      <md-icon>share</md-icon>
+      <md-icon svgIcon="facebook" color="primary"></md-icon>
+      <md-icon color="primary">mail</md-icon>
+    </div>
+    <div class="link">
+      <span>link</span><button md-button ngxClipboard [cbContent]="link" (click)="copyClipboard()">http://coletive.me/2g6</button>
+    </div>
+  </div>
+</div>
+<div class="dica">
+  <div><md-icon svgIcon="lightbulb"></md-icon><h2>Dica</h2></div>
+  <p> Grupos  de Facebook que focam em organizações em rede e colaboração: </p>
+  <md-chip-list>
+    <a href="https://www.facebook.com/groups/empresalivre/" target="_blank"><md-chip>Empresa Livre</md-chip></a>
+    <a href="https://www.facebook.com/groups/910141242384839/" target="_blank"><md-chip>Dots</md-chip></a>
+  </md-chip-list>
+</div>

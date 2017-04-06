@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import {Subject} from "rxjs/Subject";
-// import 'rxjs/add/operator/just';
+import { Subject } from "rxjs/Subject";
 
 @Component({
   selector: 'cc-add-project',
@@ -24,10 +24,9 @@ export class AddProjectComponent implements OnInit {
   ];
   lists = [ 'Backlog', 'TODO', 'Doing', 'Done', 'Publicado', 'Stories' ];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
-    // if (this.activeTab == 1) this.title = 'Escolher a lista de tarefas';
   }
 
   answer(e) {
@@ -38,7 +37,8 @@ export class AddProjectComponent implements OnInit {
   submit() {
     this.loading = true;
     console.log(this.model);
-    alert('Enviado: ' + this.model.project.title);
+    // Serviço do project e no return ->
+    this.router.navigate(['add/sucesso']);
   }
 
 }

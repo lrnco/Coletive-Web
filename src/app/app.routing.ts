@@ -4,12 +4,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './core/login/login.component';
 import { HomeComponent } from './core/home/home.component';
-import { AddProjectComponent } from './core/add-project/add-project';
+import { AddProjectComponent, Add04Component } from './core/add-project/add-project';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'add', component: AddProjectComponent }
+  { path: 'add', children: [
+      { path: '', component: AddProjectComponent },
+      { path: 'sucesso', component: Add04Component }
+  ]}
 ];
 
 @NgModule({
