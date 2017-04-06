@@ -1,4 +1,5 @@
 @import "../../../../scss/variables/colors";
+@import "../../../../scss/variables/breakpoints";
 
 #add-sucesso {
   padding-top: 30px;
@@ -9,11 +10,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    .buttons { display: flex; }
     md-icon {
-        font-size: 32px;
-        height: 32px;
-        width: 32px;
-        margin-right: 16px;
+        font-size: 24px;
+        height: 24px;
+        width: 24px;
+        margin-right: 8px;
         &[aria-label="share"]{ color: $color__gray; }
     }
     span { color: $color__gray; }
@@ -21,6 +23,10 @@
         border: solid 1px $color__gray;
         padding: 0 8px;
         margin-left: 12px;
+        width: 150px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }
 
@@ -45,4 +51,19 @@
       font-size: 16px;
       padding: 10px 20px 10px 20px;
     }
+}
+
+@include media-breakpoint-up(xxs) {
+  .share md-icon {
+      font-size: 32px;
+      height: 32px;
+      width: 32px;
+      margin-right: 16px;
+  }
+}
+
+@include media-breakpoint-up(xs) {
+  .share button {
+      width: 180px;
+  }
 }
