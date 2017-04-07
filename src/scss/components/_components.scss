@@ -20,3 +20,12 @@ textarea {
   font-size: 13px;
   line-height: 15px;
 }
+
+
+//Tags
+@each $tag, $color in $color__tags {
+    .tag-#{$tag} md-chip {
+      background-color: $color !important;
+      color: #fff !important;
+    }
+}

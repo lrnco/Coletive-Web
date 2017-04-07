@@ -13,7 +13,10 @@ import 'hammerjs';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconSetComponent } from './shared/icons/icon-set.component';
+
+//Vendor
 import { ClipboardModule } from 'ngx-clipboard';
+import { NgPipesModule } from 'ngx-pipes';
 
 //Global
 import { SplitNumberPipe } from './global/pipes/pipes';
@@ -27,6 +30,8 @@ import { ToolbarComponent, ToolbarDialogComponent } from './shared/toolbar/toolb
 import { LoginComponent } from './core/login/login.component';
 import { HomeComponent } from './core/home/home.component';
 import { AddProjectComponent, Add01Component, Add02Component, Add03Component, Add04Component } from './core/add-project/add-project';
+import { ProjectCardComponent } from './shared/project-card/project-card.component';
+import { ShareComponent } from './shared/share/share.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +46,9 @@ import { AddProjectComponent, Add01Component, Add02Component, Add03Component, Ad
     Add02Component,
     Add03Component,
     Add04Component,
-    SplitNumberPipe
+    SplitNumberPipe,
+    ProjectCardComponent,
+    ShareComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +57,8 @@ import { AddProjectComponent, Add01Component, Add02Component, Add03Component, Ad
     AppRouting,
     MaterialModule,
     BrowserAnimationsModule,
-    ClipboardModule
+    ClipboardModule,
+    NgPipesModule
   ],
   providers: [
     Angular2TokenService,

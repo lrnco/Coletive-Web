@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'cc-home',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  projects = [
+    { title : 'Tarefas Coletivo.Co', tasks:[
+        { title: 'Otimizar syncronizador usando aprendizado do AllBoardsCalendar', tags: ['Planejamento', 'Design'] },
+        { title: 'Otimizar syncronizador usando aprendizado do AllBoardsCalendar', tags: ['Planejamento', 'Design'], image: 'http://cdn3.pitchfork.com/news/70006/4e42edc5.jpg' } ]
+    },
+    { title : 'Tarefas Empresa Livre', tasks:[
+        { title: 'Otimizar syncronizador usando aprendizado do AllBoardsCalendar', tags: ['Planejamento', 'Design'] },
+        { title: 'Otimizar syncronizador usando aprendizado do AllBoardsCalendar', tags: ['Planejamento', 'Design'] } ]
+    },
+    { title : 'Tarefas Dots', tasks:[
+        { title: 'Otimizar syncronizador usando aprendizado do AllBoardsCalendar', tags: ['Planejamento', 'Design'], image: 'http://www.geek.com/wp-content/uploads/2017/01/daft-punk-backs-650x366.png' },
+        { title: 'Otimizar syncronizador usando aprendizado do AllBoardsCalendar', tags: ['Planejamento', 'Design'] } ]
+    }
+  ];
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  addProject() {
+    this.router.navigate(['add']);
   }
 
 }

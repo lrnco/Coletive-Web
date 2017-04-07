@@ -1,1 +1,9 @@
 <cc-toolbar></cc-toolbar>
+<div id="main">
+  <h1>Título bla bla bla</h1>
+  <p>Subtitulo bla bla bla</p>
+  <button md-button (click)="addProject()" name="add-projeto">Adicionar um projeto <md-icon>add_circle_outline</md-icon></button>
+</div>
+<section id="projetos">
+  <cc-project-card *ngFor="let project of projects" [project]="project"></cc-project-card>
+</section>

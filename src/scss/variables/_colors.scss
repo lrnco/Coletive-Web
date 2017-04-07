@@ -1,6 +1,7 @@
 $color__main: #00b7a4;
 $color__sec: #00d2d7;
 $color__sec_darken: #00aaaf;
+$color__sec_dark: #004b4b;
 $color__trello: #0079bf;
 
 $color__tabs: #ffc800;
@@ -10,3 +11,6 @@ $color__lightengray: #fafafa;
 $color__lightgray: #dcdcdc;
 $color__gray: #cdcdcd;
 $color__darkgray: #484546;
+
+$color__tags: (design, $color__tabs),
+              (planejamento, #c377e1);

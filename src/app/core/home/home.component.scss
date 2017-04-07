@@ -1,0 +1,18 @@
+@import "../../../scss/variables/colors";
+
+#main {
+    background-color: $color__sec_dark;
+    color: #fff;
+    padding: 12px 12px 24px 12px;
+
+    button.mat-button {
+        position: absolute;
+        background-color: $color__main;
+    }
+}
+
+#projetos {
+    padding: 40px 12px;
+    display: flex;
+    flex-flow: row wrap;
+}

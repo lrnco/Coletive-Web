@@ -1,0 +1,36 @@
+@import "../../../scss/variables/colors";
+
+:host {
+    flex: 1 1 100%;
+    padding: 12px;
+    border: solid 1px $color__lightgray;
+    border-bottom: solid 2px $color__gray;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.title {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+hr { opacity: .5; }
+
+.task {
+    padding: 16px 0;
+    border-bottom: solid 1px $color__gray;
+    &:last-child { border-bottom: none; }
+    p {
+        font-size: 14px;
+        line-height: normal;
+        padding: 0 6px;
+    }
+}
+
+img {
+    width: 100%;
+    height: 150px;
+    padding: 4px 0 16px 0;
+    object-fit: cover;
+}
