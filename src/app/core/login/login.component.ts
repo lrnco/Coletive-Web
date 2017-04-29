@@ -23,9 +23,7 @@ export class LoginComponent implements OnInit, OnDestroy {
        this.returnUrl = params['returnUrl'];
     });
 
-    if (this._authService.isLogged()) {
-      this._authService.logOut();
-    }
+    this._authService.logOut();
   }
 
   ngOnDestroy() {
@@ -36,8 +34,13 @@ export class LoginComponent implements OnInit, OnDestroy {
     var component = this;
 
     this._authService.loginWithTrello(function(userData) {
-      var returnUrl = component.returnUrl ? component.returnUrl : '/add';
-      component.router.navigate([ returnUrl ]);
+      var returnRoute = localStorage.getItem('redirectTo');
+      if (returnRoute) {
+        localStorage.removeItem('redirectTo');
+      } else {
+        returnRoute = component.returnUrl ? component.returnUrl : '/home';
+      }
+      component.router.navigate([ returnRoute ]);
     });
   }
 }

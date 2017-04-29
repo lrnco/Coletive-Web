@@ -22,7 +22,8 @@ export class AuthService {
     this._tokenService.init({
       apiBase: AppSettings.API_ENDPOINT,
       oAuthBase: AppSettings.API_ENDPOINT,
-      signInRedirect: '/home',
+      signInRedirect: '/login',
+      signOutFailedValidate: true,
       oAuthPaths: {
         // facebook: 'auth/facebook',
         // google_oauth2:   'auth/google_oauth2',

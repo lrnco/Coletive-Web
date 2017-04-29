@@ -34,11 +34,8 @@ export class HomeComponent implements OnInit {
   }
 
   addProject() {
-    if (this._authService.isLogged()) {
-      this.router.navigate(['add']);
-    } else {
-      this.router.navigate(['login'], { queryParams: { returnUrl: '/add' } });
-    }
+    localStorage.setItem('redirectTo', 'add');
+    this.router.navigate(['add']);
   }
 
 }
