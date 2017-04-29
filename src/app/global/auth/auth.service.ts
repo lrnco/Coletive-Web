@@ -31,6 +31,10 @@ export class AuthService {
     });
   }
 
+  isLogged() : boolean {
+    return this._tokenService.userSignedIn();
+  }
+
   checkUser() {
     var newData = this._tokenService.currentUserData;
     var hasLogged = newData != null;
@@ -50,8 +54,6 @@ export class AuthService {
           console.log(res);
           appComponent.userIsLoggedSource.next(res != null);
           appComponent.userDataSource.next(res);
-          console.log(res != null);
-          console.log(res);
 
           if (sucessCallback) {
             sucessCallback(res);
@@ -66,15 +68,22 @@ export class AuthService {
     return this.logInWithOAuth('trello', sucessCallback);
   }
 
-  logOut() {
+  logOut(sucessCallback?: () => void, errorCallback?: (error:any) => void) {
       var appComponent = this;
       this._tokenService.signOut().subscribe(
         function(res) {
-          console.log(res);
           appComponent.userIsLoggedSource.next(false);
           appComponent.userDataSource.next(null);
+
+          if (sucessCallback) {
+            sucessCallback();
+          }
         },
-        error =>    console.log(error)
+        function(error) {
+          if (errorCallback) {
+            errorCallback(error);
+          }
+        }
       );
   }
 }

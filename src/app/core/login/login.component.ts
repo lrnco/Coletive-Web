@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { Subscription }   from 'rxjs/Subscription';
 
 import { AuthService } from '../../global/auth/auth.service';
 
@@ -8,19 +10,34 @@ import { AuthService } from '../../global/auth/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
+  returnUrl: string;
+  private subParams: any
 
-  constructor(private router: Router,
-    private _authService: AuthService) { }
+  constructor(private router: Router, private route: ActivatedRoute,
+    private _authService: AuthService) {
+  }
 
   ngOnInit() {
+    this.subParams = this.route.queryParams.subscribe(params => {
+       this.returnUrl = params['returnUrl'];
+    });
+
+    if (this._authService.isLogged()) {
+      this._authService.logOut();
+    }
+  }
+
+  ngOnDestroy() {
+    this.subParams.unsubscribe();
   }
 
   logInWithTrello() {
     var component = this;
-    console.log('logInWithTrello');
+
     this._authService.loginWithTrello(function(userData) {
-      component.router.navigate(['/add']);
+      var returnUrl = component.returnUrl ? component.returnUrl : '/add';
+      component.router.navigate([ returnUrl ]);
     });
   }
 }

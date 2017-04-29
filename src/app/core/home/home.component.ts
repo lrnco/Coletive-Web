@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { AuthService } from '../../global/auth/auth.service';
+
 @Component({
   selector: 'cc-home',
   templateUrl: './home.component.html',
@@ -23,13 +25,20 @@ export class HomeComponent implements OnInit {
     }
   ];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private _authService: AuthService)
+  {
+  }
 
   ngOnInit() {
   }
 
   addProject() {
-    this.router.navigate(['add']);
+    if (this._authService.isLogged()) {
+      this.router.navigate(['add']);
+    } else {
+      this.router.navigate(['login'], { queryParams: { returnUrl: '/add' } });
+    }
   }
 
 }
