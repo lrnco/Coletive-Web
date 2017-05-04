@@ -19,7 +19,7 @@
         </div>
       </div>
     </ng-template>
-    <cc-add-01 [projects]="projects" (selected)="answer($event)"></cc-add-01>
+    <cc-add-01 [boards]="boards" (selected)="boardSelected($event)"></cc-add-01>
   </md-tab>
   <md-tab>
     <ng-template md-tab-label>
@@ -30,7 +30,7 @@
         </div>
       </div>
     </ng-template>
-    <cc-add-02 [lists]="lists" (selected)="answer($event)"></cc-add-02>
+    <cc-add-02 [lists]="lists" (selected)="listSelected($event)"></cc-add-02>
   </md-tab>
   <md-tab>
     <ng-template md-tab-label>
@@ -69,11 +69,11 @@
 </md-sidenav-container>
 
 <button id="next" md-button *ngIf="activeTab < 2" (click)="activeTab = activeTab + 1" [ngClass]="{'backdrop': helpOpened}"
-  [disabled]="(activeTab == 0 && model.project == null) || (activeTab == 1 && model.list == null)">
+  [disabled]="(activeTab == 0 && model.board == null) || (activeTab == 1 && model.list == null)">
   Avançar<md-icon>keyboard_arrow_right</md-icon>
 </button>
 
 <button id="next" *ngIf="activeTab == 2" md-button (click)="submit()" [ngClass]="{'backdrop': helpOpened}"
-  [disabled]="loading || model.project == null || model.list == null || model.description == null">
+  [disabled]="loading || model.board == null || model.list == null || model.description == null">
   Finalizar Cadastro<md-icon>check</md-icon>
 </button>

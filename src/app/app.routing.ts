@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'add', canActivate: [ Angular2TokenService ], children: [
       { path: '', component: AddProjectComponent },
-      { path: 'sucesso', component: Add04Component }
+      { path: 'sucesso/:id', component: Add04Component }
   ]}
 ];
 

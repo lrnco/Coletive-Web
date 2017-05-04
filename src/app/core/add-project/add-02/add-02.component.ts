@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
 export class Add02Component implements OnInit {
 
   @Input() lists;
-  select:number;
+  select:any;
   @Output() selected = new EventEmitter();
   currentList:number = 0;
   listMargin:number = 66;

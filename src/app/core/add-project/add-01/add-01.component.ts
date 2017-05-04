@@ -8,17 +8,17 @@ export class Add01Component implements OnInit {
 
   select:any;
   @Output() selected = new EventEmitter();
-  @Input() projects;
+  @Input() boards;
 
   constructor() { }
 
   ngOnInit() {
-    // this.projects = null; // <-- Para testar, caso não tenha projects cadastrados no Trello
+    // this.boards = null; // <-- Para testar, caso não tenha projects cadastrados no Trello
   }
 
   sendSelected(p) {
     this.select = p;
-    this.selected.emit({project: p});
+    this.selected.emit({board: p});
   }
 
   addTrello() {

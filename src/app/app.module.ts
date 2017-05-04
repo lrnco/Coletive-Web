@@ -33,6 +33,9 @@ import { AddProjectComponent, Add01Component, Add02Component, Add03Component, Ad
 import { ProjectCardComponent } from './shared/project-card/project-card.component';
 import { ShareComponent } from './shared/share/share.component';
 
+//Services
+import { ProjectService } from './core/services/project.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +66,8 @@ import { ShareComponent } from './shared/share/share.component';
   providers: [
     Angular2TokenService,
     HttpClient,
-    AuthService
+    AuthService,
+    ProjectService
   ],
   bootstrap: [AppComponent]
 })
