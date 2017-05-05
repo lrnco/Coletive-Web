@@ -7,8 +7,8 @@
   </div>
   <div id="list-slider-pagination">
     <div *ngFor="let list of lists; let i = index">
-        <md-icon *ngIf="currentList != index" color="primary">panorama_fish_eye</md-icon>
-        <md-icon *ngIf="currentList == index" color="primary">lens</md-icon>
+        <md-icon *ngIf="currentList != i" color="primary">panorama_fish_eye</md-icon>
+        <md-icon *ngIf="currentList == i" color="primary">lens</md-icon>
     </div>
   </div>
 </div>
