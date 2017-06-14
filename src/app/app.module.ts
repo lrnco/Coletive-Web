@@ -13,6 +13,7 @@ import 'hammerjs';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconSetComponent } from './shared/icons/icon-set.component';
+import { ShareButtonsModule } from 'ngx-sharebuttons';
 
 //Vendor
 import { ClipboardModule } from 'ngx-clipboard';
@@ -61,7 +62,8 @@ import { ProjectService } from './core/services/project.service';
     MaterialModule,
     BrowserAnimationsModule,
     ClipboardModule,
-    NgPipesModule
+    NgPipesModule,
+    ShareButtonsModule.forRoot()
   ],
   providers: [
     Angular2TokenService,

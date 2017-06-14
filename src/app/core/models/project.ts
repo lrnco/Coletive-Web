@@ -21,6 +21,19 @@ export class Project extends BaseEntity {
   fullUrl(baseUrl) : string {
     return baseUrl + 'project/' + this.slug;
   }
+
+  copyInto(jsonData : any) {
+    var copied = super.copyInto(jsonData);
+    if (jsonData.tasks) {
+      copied.tasks = [];
+      for (let rawTask of jsonData.tasks) {
+        var task = new Task();
+        task.copyInto(rawTask);
+        copied.tasks.push(task);
+      }
+    }
+    return copied;
+  }
 }
 
 export class ProjectInfo extends BaseEntity {
