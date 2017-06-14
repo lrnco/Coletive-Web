@@ -34,6 +34,13 @@ export abstract class OnlineService<T extends BaseEntity> extends BaseService  {
         return hash;
     }
 
+    list(params?: any) : Promise<T[]> {
+        var service = this;
+        return this.http.get(this.entity_url(), params).toPromise()
+                .then(data => { return service.extractCustomList(data); })
+                .catch(this.handleError);
+    }
+
     get(id: number, params?: any) {
         var service = this;
         return this.http.get(this.entity_url() + '/' + id, params).toPromise()
@@ -41,9 +48,22 @@ export abstract class OnlineService<T extends BaseEntity> extends BaseService  {
                 .catch(this.handleError);
     }
 
-    extractCustomData(res: Response) : T {
+    extractItem(data: any) : T {
         var instance = this.newInstance();
-        instance.copyInto(super.extractData(res));
+        instance.copyInto(data);
         return instance;
+    }
+
+    extractCustomData(res: Response) : T {
+        return this.extractItem(super.extractData(res));
+    }
+
+    extractCustomList(res: Response) : T[] {
+        var result = [];
+        var baseData = this.extractData(res, []);
+        for (let item of baseData) {
+            result.push(this.extractItem(item));
+        }
+        return result;
     }
 }

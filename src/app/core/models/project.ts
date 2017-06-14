@@ -1,4 +1,5 @@
 import { BaseEntity } from '../models/base_entity';
+import { Task } from './task';
 
 export class Project extends BaseEntity {
 
@@ -8,6 +9,8 @@ export class Project extends BaseEntity {
   public slug: string;
   public description: string;
   public extra_info: string;
+
+  public tasks: Task[];
 
   public info: ProjectInfo;
 

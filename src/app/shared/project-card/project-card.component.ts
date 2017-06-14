@@ -3,12 +3,12 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'cc-project-card',
   template: `
-    <span class="title">{{ project.title }}</span>
+    <span class="title">{{ project.name }}</span>
     <hr>
     <div class="task" *ngFor="let task of project.tasks; let i = index;">
-      <md-chip-list><a *ngFor="let tag of task.tags" href="{{ tag }}" class="tag-{{ tag | slugify }}"><md-chip>{{ tag }}</md-chip></a></md-chip-list>
-      <p>{{ task.title }}</p>
-      <img *ngIf="task.image" [src]="task.image" [alt]="task.title"/>
+      <md-chip-list><a *ngFor="let label of task.labels" href="{{ label }}" class="tag-{{ label | slugify }}"><md-chip>{{ label }}</md-chip></a></md-chip-list>
+      <p>{{ task.name }}</p>
+      <img *ngIf="task.image" [src]="task.image" [alt]="task.description"/>
       <cc-share></cc-share>
     </div>
   `,

@@ -10,9 +10,9 @@ export abstract class BaseService {
 
     constructor(protected http: HttpClient) { }
 
-    protected extractData(res: Response) : any {
+    protected extractData(res: Response, defaultValue?: any) : any {
         let body = res.json();
-        return body || { };
+        return body || defaultValue || { };
     }
 
     protected handleError (error: Response | any){
