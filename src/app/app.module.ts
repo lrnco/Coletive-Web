@@ -30,12 +30,14 @@ import { ToolbarComponent, ToolbarDialogComponent } from './shared/toolbar/toolb
 //Components
 import { LoginComponent } from './core/login/login.component';
 import { HomeComponent } from './core/home/home.component';
+import { FilterComponent } from './core/home/filter.component';
 import { AddProjectComponent, Add01Component, Add02Component, Add03Component, Add04Component } from './core/add-project/add-project';
 import { ProjectCardComponent } from './shared/project-card/project-card.component';
 import { ShareComponent } from './shared/share/share.component';
 
 //Services
 import { ProjectService } from './core/services/project.service';
+import { LabelService } from './core/services/label.service';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,7 @@ import { ProjectService } from './core/services/project.service';
     ToolbarDialogComponent,
     LoginComponent,
     HomeComponent,
+    FilterComponent,
     AddProjectComponent,
     Add01Component,
     Add02Component,
@@ -69,7 +72,8 @@ import { ProjectService } from './core/services/project.service';
     Angular2TokenService,
     HttpClient,
     AuthService,
-    ProjectService
+    ProjectService,
+    LabelService
   ],
   bootstrap: [AppComponent]
 })

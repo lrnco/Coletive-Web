@@ -1,4 +1,5 @@
 import { BaseEntity } from '../models/base_entity';
+import { Label } from '../models/label';
 
 export class Task extends BaseEntity {
 
@@ -7,6 +8,8 @@ export class Task extends BaseEntity {
   public slug: string;
   public description: string;
   public due_date: Date;
+
+  public labels: Label[];
 
   entity_url():string { return 'tasks'; }
   entity_name():string { return 'task'; }

@@ -1,0 +1,16 @@
+<div id="filter">
+  <form name="form" id="query" #f="ngForm">
+    <h4>Categorias</h4>
+    <div id="labels">
+      <md-chip-list><button *ngFor="let label of filterLabels" [class]="label.selected ? 'selected' : ''"><md-chip [style.backgroundColor]="label.color_rgb" [style.borderColor]="label.border_color_rgb" [style.color]="label.font_color_rgb" (click)="toggleLabel(label)">{{ label.name }}</md-chip></button></md-chip-list>
+    </div>
+
+    <h4>Buscar</h4>
+    <input type="text" name="query" rows="7" cols="40" [(ngModel)]="query" placeholder="Busque por palavras-chave" required />
+
+    <button id="next" md-button (click)="submitSearch()">
+      Buscar<md-icon>search</md-icon>
+    </button>
+
+  </form>
+</div>

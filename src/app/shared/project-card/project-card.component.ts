@@ -10,7 +10,7 @@ import { AppSettings } from '../../global/app.settings';
     <span class="title">{{ project.name }}</span>
     <hr>
     <div class="task" *ngFor="let task of project.tasks; let i = index;">
-      <md-chip-list><a *ngFor="let label of task.labels" href="{{ label }}" class="tag-{{ label | slugify }}"><md-chip>{{ label }}</md-chip></a></md-chip-list>
+      <md-chip-list><a *ngFor="let label of task.labels" href="{{ label.name }}" class="tag-{{ label.name | slugify }}"><md-chip [style.backgroundColor]="label.color_rgb" [style.borderColor]="label.border_color_rgb" [style.color]="label.font_color_rgb">{{ label.name }}</md-chip></a></md-chip-list>
       <p>{{ task.name }}</p>
       <img *ngIf="task.image" [src]="task.image" [alt]="task.description"/>
       <cc-share [url]="fullTaskUrl(task)" [title]="project.name + ' - ' + task.name"></cc-share>

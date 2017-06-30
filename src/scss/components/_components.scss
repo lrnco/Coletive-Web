@@ -24,8 +24,8 @@ textarea {
 
 //Tags
 @each $tag, $color in $color__tags {
-    .tag-#{$tag} md-chip {
-      background-color: $color !important;
-      color: #fff !important;
+    .tag-#{$tag} md-chip, .tag-#{$tag} .mat-chip:not(.mat-basic-chip) {
+      background-color: $color;
+      color: #fff;
     }
 }

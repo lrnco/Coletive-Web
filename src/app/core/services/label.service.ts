@@ -6,22 +6,11 @@ import { AppSettings } from '../../global/app.settings';
 import { HttpClient } from '../../global/http.client';
 
 import { OnlineService } from './online.service';
-import { Project } from '../models/project';
+import { Label } from '../models/label';
 
 @Injectable()
-export class ProjectService extends OnlineService<Project> {
-    public lastListParams:any;
-
+export class LabelService extends OnlineService<Label> {
     entity_url() : string { return (this.newInstance()).entity_url() };
     entity_name() : string { return (this.newInstance()).entity_name() };
-    newInstance() : Project { return (new Project()) };
-
-    list(params?: any) : Promise<Project[]> {
-        this.lastListParams = params;
-        return super.list(params);
-    }
-
-    getLastListParams() : any {
-      return this.lastListParams;
-    }
+    newInstance() : Label { return (new Label()) };
 }
