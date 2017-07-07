@@ -22,6 +22,18 @@ export class Project extends BaseEntity {
     return baseUrl + 'project/' + this.slug;
   }
 
+  addOrReplaceTask(task: Task) {
+    for (let i = 0; i < this.tasks.length; i++) {
+        var childTask = this.tasks[i];
+        if (childTask.id == task.id) {
+          this.tasks[i] = task;
+          return;
+        }
+    }
+
+    this.tasks.push(task);
+  }
+
   copyInto(jsonData : any) {
     var copied = super.copyInto(jsonData);
     if (jsonData.tasks) {

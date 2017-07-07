@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 // import { Task } from '../../core/models/task';
-// import { Project } from '../../core/models/project';
+import { Project } from '../../core/models/project';
 import { AppSettings } from '../../global/app.settings';
 
 @Component({
@@ -13,14 +13,14 @@ import { AppSettings } from '../../global/app.settings';
       <md-chip-list><a *ngFor="let label of task.labels" href="{{ label.name }}" class="tag-{{ label.name | slugify }}"><md-chip [style.backgroundColor]="label.color_rgb" [style.borderColor]="label.border_color_rgb" [style.color]="label.font_color_rgb">{{ label.name }}</md-chip></a></md-chip-list>
       <p>{{ task.name }}</p>
       <img *ngIf="task.image" [src]="task.image" [alt]="task.description"/>
-      <cc-share [url]="fullTaskUrl(task)" [title]="project.name + ' - ' + task.name"></cc-share>
+      <cc-share [project]="project" [task]="task" [url]="fullTaskUrl(task)" [title]="project.name + ' - ' + task.name"></cc-share>
     </div>
   `,
   styleUrls: ['./project-card.component.scss']
 })
 export class ProjectCardComponent implements OnInit {
 
-  @Input() project:{};
+  @Input() project:Project;
 
   constructor() { }
 

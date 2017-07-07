@@ -34,9 +34,11 @@ import { FilterComponent } from './core/home/filter.component';
 import { AddProjectComponent, Add01Component, Add02Component, Add03Component, Add04Component } from './core/add-project/add-project';
 import { ProjectCardComponent } from './shared/project-card/project-card.component';
 import { ShareComponent } from './shared/share/share.component';
+import { ProjectComponent } from './views/project/project.component';
 
 //Services
 import { ProjectService } from './core/services/project.service';
+import { TaskService } from './core/services/task.service';
 import { LabelService } from './core/services/label.service';
 
 @NgModule({
@@ -55,7 +57,8 @@ import { LabelService } from './core/services/label.service';
     Add04Component,
     SplitNumberPipe,
     ProjectCardComponent,
-    ShareComponent
+    ShareComponent,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +76,8 @@ import { LabelService } from './core/services/label.service';
     HttpClient,
     AuthService,
     ProjectService,
-    LabelService
+    LabelService,
+    TaskService
   ],
   bootstrap: [AppComponent]
 })

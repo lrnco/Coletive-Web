@@ -1,0 +1,7 @@
+@import "../../../scss/variables/colors";
+@import "../../../scss/variables/breakpoints";
+
+#project {
+  padding-top: 30px;
+  h1 { color: $color__main; }
+}

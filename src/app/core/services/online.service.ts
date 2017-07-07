@@ -28,7 +28,7 @@ export abstract class OnlineService<T extends BaseEntity> extends BaseService  {
         }
     }
 
-    private itemHash(item: T) {
+    protected itemHash(item: T) {
         var hash = {};
         hash[item.entity_name()] = item.toRailsHash();
         return hash;

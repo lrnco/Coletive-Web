@@ -9,6 +9,8 @@ export class Task extends BaseEntity {
   public description: string;
   public due_date: Date;
 
+  public current_user_participating: boolean;
+
   public labels: Label[];
 
   entity_url():string { return 'tasks'; }

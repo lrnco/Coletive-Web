@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       } else {
         returnRoute = component.returnUrl ? component.returnUrl : '/home';
       }
-      component.router.navigate([ returnRoute ]);
+      component.router.navigateByUrl(returnRoute);
     });
   }
 }

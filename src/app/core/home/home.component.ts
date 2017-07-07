@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { AuthService } from '../../global/auth/auth.service';
 import { Project } from '../models/project';
+import { Task } from '../models/task';
 import { ProjectService } from '../services/project.service';
 
 @Component({
@@ -36,7 +37,7 @@ export class HomeComponent implements OnInit {
   }
 
   addProject() {
-    localStorage.setItem('redirectTo', 'add');
+    localStorage.setItem('redirectTo', '/add');
     this.router.navigate(['add']);
   }
 

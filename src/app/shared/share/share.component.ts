@@ -1,5 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { Project } from '../../core/models/project';
+import { Task } from '../../core/models/task';
+
 @Component({
   selector: 'cc-share',
   template: `
@@ -12,7 +17,8 @@ import { Component, OnInit, Input } from '@angular/core';
         <md-icon *ngIf="openshare" color="primary">mail</md-icon>
       </a>
     </div>
-    <button md-button class="participar">Participar da tarefa</button>
+    <button *ngIf="task.current_user_participating" md-button class="ja-participa">Participando!</button>
+    <button *ngIf="!task.current_user_participating" md-button class="participar" (click)="participateInTask()">Participar da tarefa</button>
   `,
   styleUrls: ['./share.component.scss']
 })
@@ -21,10 +27,19 @@ export class ShareComponent implements OnInit {
   @Input() url:string;
   @Input() title:string;
   @Input() description:string;
+  @Input() project:Project;
+  @Input() task:Task;
 
-  constructor() { }
+  constructor(private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
+  }
+
+  participateInTask() {
+    var url = '/project/' + this.project.slug + '?participate_in=' + this.task.id;
+    localStorage.setItem('redirectTo', url);
+    this.router.navigateByUrl(url);
   }
 
 }
